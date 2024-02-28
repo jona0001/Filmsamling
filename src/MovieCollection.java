@@ -1,19 +1,24 @@
-import javax.print.DocFlavor;
 import java.util.ArrayList;
 
 public class MovieCollection {
 
+
+
     // an attribute of an empty Arraylist that will store instances of the movie class
     // so a list with a lot of movies on it
-    private ArrayList<Movie> filmListe;
+    public ArrayList<Movie> filmListe;
 
 
     //this constructor initializes the filmListe attributes by creating an empty arraylist movie each time
     // that way we ensure each new MovieCollection object begins empty, that way we can fill each new object with new the input each time
     public MovieCollection() {
-        filmListe = new ArrayList<Movie>();
+        filmListe = new ArrayList<>();
+        filmListe.add(new Movie("java_games", "Jonathan", 2024, 20000, true, "action"));
+        filmListe.add(new Movie("Java", "Jonathan", 2025, 20000, true, "horror"));
+
 
     }
+
 
     //Method inside this method we create a new object to add to our filmListe
     // here we tell what parameter add movie should consist of and inside the method there is created a new movie object.
@@ -43,35 +48,25 @@ public class MovieCollection {
     }
 
 
-    //trying to make a method for user case 5, to search in my movie list.
-    //this method is declared with a return type of Movie collection
-    //it takes a parameter searchTitle of type String
-    public MovieCollection searchMovie(String searchTitle) {
-        // a new instance of movieCollection is created named mc, this will be used to store the results
-        MovieCollection mc = new MovieCollection();
-        // The method iterates through each Movie object in the current MovieCollection (filmListe in my case)
-        for (Movie movie : this.filmListe) {
-            // For each movie, it checks if the lowercase version of the movie title
-            // contains the lowercase version of the search title.
-            if (movie.getTitle().toLowerCase().contains(searchTitle.toLowerCase())) {
-                //if match is found we add a movie to my new mc movie collections
-                mc.filmListe.add(movie);
+    //
+    public String movieSearch(String searchMovieInput) {
+        String filmSearchMatches = "";
 
+        for (Movie sm : filmListe) {
+            if (sm.getTitle().toLowerCase().contains(searchMovieInput)) {
+                filmSearchMatches += "\n" + sm.toString();
             }
+        }
+        if (filmSearchMatches.isEmpty()) {
+            return "\nintet match";
+        }
 
-        }
-        if (mc.filmListe.isEmpty()){
-            return null;
-        }
-        else{
-            return mc;
-        }
+        return filmSearchMatches;
 
     }
 
 
 
 
-
-
 }
+

@@ -1,29 +1,43 @@
+import java.util.ArrayList;
+
 public class Controller {
-    //filmListe: An instance of the MovieCollection class. Essentially, it represents the movie collection.
+    // attribute that holds the movie collection
     private MovieCollection filmListe;
-
-
-
-    //The constructor is a special method that gets called when you create an object of the Controller class.
-    //In your case, the constructor initializes the filmListe attribute by creating a new MovieCollection object.
-    //This ensures that each new Controller object has its own movie collection to work with.
+    //Constructor initializes the movie collection
     public Controller() {
         filmListe = new MovieCollection();
     }
 
-    // Inside the method, it call the addMovie() method of the filmListe (which is an instance of MovieCollection).
-    //The addMovie() method in MovieCollection creates a new Movie object and adds it to the collection.
+    // Step 3: Add movie use case controller
     public void addMovie (String title, String director, int yearCreated,
                           double lengthInMinutes, boolean isInColor, String genre){
         filmListe.addMovie(title, director, yearCreated, lengthInMinutes, isInColor, genre);
-
-
-
     }
 
+    // user case 4 getter
     public String showMovieCollection (){
         return filmListe.toString();
     }
+
+
+    // getter for movie collection
+    public ArrayList<Movie> getMovieCollection() {
+        return filmListe.getFilmListe();
+    }
+
+    //user case 5 getter
+    public String showSearch(String word) {
+        return filmListe.movieSearch(word);
+    }
+
+
+
+
+
+
+
+
+
 
 }
 
