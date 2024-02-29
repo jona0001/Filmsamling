@@ -1,7 +1,7 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 public class MovieCollection {
-
 
 
     // an attribute of an empty Arraylist that will store instances of the movie class
@@ -15,57 +15,71 @@ public class MovieCollection {
         filmListe = new ArrayList<>();
         filmListe.add(new Movie("java_games", "Jonathan", 2024, 20000, true, "action"));
         filmListe.add(new Movie("Java", "Jonathan", 2025, 20000, true, "horror"));
-
-
     }
 
-
-    //Method inside this method we create a new object to add to our filmListe
-    // here we tell what parameter add movie should consist of and inside the method there is created a new movie object.
-    public void addMovie(String title, String director, int yearCreated, double lengthInMinutes, boolean isInColor, String genre) {
+    public void addMovie(String title, String director, int yearCreated, int lengthInMinutes, boolean isInColor, String genre) {
         Movie movie = new Movie(title, director, yearCreated, lengthInMinutes, isInColor, genre);
         filmListe.add(movie);
     }
 
-
-    // this toString() method generates a string representation of all the movies in the filmList. When you call toString()
-    // on an instance of the containing class, it will display information about each movie in the list.
-    // in the for loop we go through each movie (filmList) stored in the class Movie.
-    // user story 4
     @java.lang.Override
     public String toString() {
         String result = "";
         for (Movie m : filmListe) {
             result += m.toString();
-
         }
         return result;
     }
 
-    //getter that allows me to get the movies outside of this class
+    //getter that allows me to get the film list outside of this class
     public ArrayList<Movie> getFilmListe() {
         return filmListe;
     }
 
-
-    //
-    public String movieSearch(String searchMovieInput) {
-        String filmSearchMatches = "";
+    //movie search
+    public ArrayList<Movie> movieSearch(String searchMovieInput) {
+        ArrayList<Movie> filmSearchMatches = new ArrayList<>();
 
         for (Movie sm : filmListe) {
             if (sm.getTitle().toLowerCase().contains(searchMovieInput)) {
-                filmSearchMatches += "\n" + sm.toString();
+                filmSearchMatches.add(sm);
             }
         }
         if (filmSearchMatches.isEmpty()) {
-            return "\nintet match";
+            System.out.println("no match");
         }
 
         return filmSearchMatches;
 
     }
 
+    public void editMovie(int i, String title, String director, int year, boolean Color, int lengthInMinutes, String genre) {
 
+        Movie m = filmListe.get(i);
+        m.setTitle(title);
+        m.setDirector(director);
+        m.setYear(year);
+        m.setColor(Color);
+        m.setLengthInMinutes(lengthInMinutes);
+        m.setGenre(genre);
+
+
+    }
+
+
+    public Movie getMovie(int movieNumber) {
+        return filmListe.get(movieNumber);
+    }
+
+    public void printMovie(int i) {
+
+        if (i < filmListe.size() && i >= 0) {
+            System.out.println(filmListe.get(i));
+
+        } else {
+            System.out.println("Venligst indtast et nummer mellem 0 " + "og " + filmListe.size());
+        }
+    }
 
 
 }

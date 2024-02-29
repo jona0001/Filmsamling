@@ -3,7 +3,7 @@ public class Movie {
     private String title;
     private String director;
     private int yearCreated;
-    private double lengthInMinutes;
+    private int lengthInMinutes;
     private boolean isInColor;
     private String genre;
 
@@ -11,7 +11,7 @@ public class Movie {
     //Constructor,gets called when we make an object, the constructor is called with the provided arguments (values).
 //The constructor assigns these values to the corresponding attributes (fields) of the object. kinda like attributes for the object.
     public Movie(String title, String director, int yearCreated,
-                 double lengthInMinutes, boolean isInColor, String genre) {
+                 int lengthInMinutes, boolean isInColor, String genre) {
         this.title = title;
         this.director = director;
         this.yearCreated = yearCreated;
@@ -45,6 +45,29 @@ public class Movie {
 
     public String getGenre() {
         return genre;
+    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDirector(String director) {
+        this.director = director;
+    }
+
+    public void setYear(int year) {
+        this.yearCreated = year;
+    }
+
+    public void setColor(boolean color) {
+        isInColor = color;
+    }
+
+    public void setLengthInMinutes(int lengthInMinutes) {
+        this.lengthInMinutes = lengthInMinutes;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     // a way to override within a class, providing a string representation of an object, in this case a movie
