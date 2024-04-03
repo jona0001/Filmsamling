@@ -1,4 +1,5 @@
-package data_source;
+package domain;
+
 
 public class Movie {
     // mine attributes (fields)
@@ -87,6 +88,8 @@ public class Movie {
         result +=  "\nmovie length is " +lengthInMinutes + "\nthe genre is " + genre;
         return result;
     }
+
+
 }
 
 

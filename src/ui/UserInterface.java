@@ -1,8 +1,9 @@
 package ui;
-
+import domain.*;
 import java.awt.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
 
 public class UserInterface {
     Scanner scanner;

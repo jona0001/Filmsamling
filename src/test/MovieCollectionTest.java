@@ -6,7 +6,8 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+import domain.*;
+import ui.*;
 class MovieCollectionTest {
 
     @Test
@@ -16,7 +17,7 @@ class MovieCollectionTest {
         movieCollection.addMovie("javatest", "Jonathan", 2005, 200, true, "horror");
         //act
         int expectedResult = 1;
-        int actualResult = movieCollection.filmListe.size();
+        int actualResult = movieCollection.getFilmListe().size();
         //assert
         assertEquals(expectedResult, actualResult);
     }
@@ -31,7 +32,7 @@ class MovieCollectionTest {
         // Act
         movieCollection.getFilmListe();
         int expectedNumberOfMovies = 2;
-        int actualNumberOfMovies = movieCollection.filmListe.size();
+        int actualNumberOfMovies = movieCollection.getFilmListe().size();
         //assert
         Assertions.assertEquals(expectedNumberOfMovies, actualNumberOfMovies);
     }
