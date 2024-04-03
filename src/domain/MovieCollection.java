@@ -86,8 +86,8 @@ public class MovieCollection {
         if (movieToDelete != null) {
             filmListe.remove(movieToDelete);
         } else {
-            System.out.println("domain.Movie with this title does not exist");
-        }
+        System.out.println("Movie not found!");
+    }
     }
 
 }

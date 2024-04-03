@@ -1,43 +1,38 @@
 package ui;
 import domain.*;
-import java.awt.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
-
 public class UserInterface {
-    Scanner scanner;
-    Controller controller = new Controller();
-    int menuChoice = 0;
+    private Scanner scanner;
+    private Controller controller;
+    private int menuChoice = 0;
 
     public UserInterface() {
         scanner = new Scanner(System.in);
         scanner.useDelimiter("\n");
-        int menuChoice = 0;
+        controller = new Controller();
     }
-    public void startProgram() {
-        int sentinel = 2;
+
+    public void startPrograms() {
+        int sentinel = 9;
         myMenuText();
         while (menuChoice != sentinel) {
-            if (menuChoice == 1) {
-                createMovie();
-            } else if (menuChoice == 3) {
-                printMovieCollections();
-            } else if (menuChoice == 4) {
-                searchInMovieCollections();
-            } else if (menuChoice == 5) {
-                editMovie();
-            } else if (menuChoice == 6){
-                deleteMovie();
-            } else if (menuChoice > 1) {
-                myMenuText();
+            switch (menuChoice) {
+                case 1 ->
+                    createMovie();
+                case 2 ->
+                    printMovieCollections();
+                case 3 ->
+                    searchInMovieCollections();
+                case 4 ->
+                    editMovie();
+                case 5 ->
+                    deleteMovie();
             }
         }
-
     }
 
-
-public void createMovie() {
+    public void createMovie() {
         System.out.println("input movie title");
         String title = scanner.next();
 
@@ -84,14 +79,14 @@ public void createMovie() {
     public void myMenuText() {
         System.out.println("***** Menu *****");
         System.out.println("1. add a new movie");
-        System.out.println("2: to end program");
-        System.out.println("3: to print out your movie collections");
-        System.out.println("4: to search in your movie collection");
-        System.out.println("5: to edit a movie in your collection");
-        System.out.println("6: to delete a movie in your collection");
-        try{
+        System.out.println("2: to print out your movie collections");
+        System.out.println("3: to search in your movie collection");
+        System.out.println("4: to edit a movie in your collection");
+        System.out.println("5: to delete a movie in your collection");
+        System.out.println("9: to end program");
+        try {
             menuChoice = scanner.nextInt();
-        } catch (InputMismatchException ime){
+        } catch (InputMismatchException ime) {
             System.out.println("not working, try again");
         }
 
@@ -155,12 +150,12 @@ public void createMovie() {
 
     public void deleteMovie() {
         System.out.println("Insert title of a movie to delete: ");
-        String title = scanner.nextLine();
+        String title = scanner.next();
         controller.deleteMovie(title);
+        System.out.println("Movie deleted successfully!");
+        myMenuText();
+
     }
-
-
-
 }
 
 
