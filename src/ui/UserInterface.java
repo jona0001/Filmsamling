@@ -1,3 +1,5 @@
+package ui;
+
 import java.awt.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -10,23 +12,22 @@ public class UserInterface {
     public UserInterface() {
         scanner = new Scanner(System.in);
         scanner.useDelimiter("\n");
+        int menuChoice = 0;
     }
-
     public void startProgram() {
         int sentinel = 2;
-
-
         myMenuText();
-
         while (menuChoice != sentinel) {
             if (menuChoice == 1) {
-                CreateMovie();
+                createMovie();
             } else if (menuChoice == 3) {
                 printMovieCollections();
             } else if (menuChoice == 4) {
                 searchInMovieCollections();
             } else if (menuChoice == 5) {
                 editMovie();
+            } else if (menuChoice == 6){
+                deleteMovie();
             } else if (menuChoice > 1) {
                 myMenuText();
             }
@@ -34,7 +35,8 @@ public class UserInterface {
 
     }
 
-    public void CreateMovie() {
+
+public void createMovie() {
         System.out.println("input movie title");
         String title = scanner.next();
 
@@ -57,31 +59,24 @@ public class UserInterface {
             //    }
         }
 
-
         System.out.println("input genre of movie");
         String genre = scanner.next();
         controller.addMovie(title, director, yearCreated, (int) lengthInMinutes, isInColor, genre);
-
         myMenuText();
-
 
     }
 
     public void printMovieCollections() {
         System.out.println("\n din film collection");
         System.out.println(controller.showMovieCollection());
-
         myMenuText();
-
     }
 
     public void searchInMovieCollections() {
         System.out.println("write name of movie you are looking for");
         String userSearchWord = scanner.next();
         System.out.println(controller.showSearch(userSearchWord));
-
         myMenuText();
-
     }
 
 
@@ -92,10 +87,11 @@ public class UserInterface {
         System.out.println("3: to print out your movie collections");
         System.out.println("4: to search in your movie collection");
         System.out.println("5: to edit a movie in your collection");
+        System.out.println("6: to delete a movie in your collection");
         try{
             menuChoice = scanner.nextInt();
         } catch (InputMismatchException ime){
-            System.out.println("not working");
+            System.out.println("not working, try again");
         }
 
     }
@@ -154,8 +150,16 @@ public class UserInterface {
         }
         controller.editMovie(movieNumber, titleEdit, directorEdit, yearEdit, colorEdit, lengthEdit, genreEdit);
         myMenuText();
-
     }
+
+    public void deleteMovie() {
+        System.out.println("Insert title of a movie to delete: ");
+        String title = scanner.nextLine();
+        controller.deleteMovie(title);
+    }
+
+
+
 }
 
 

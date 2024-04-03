@@ -1,3 +1,5 @@
+package data_source;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 
@@ -10,7 +12,8 @@ public class MovieCollection {
 
 
     //this constructor initializes the filmListe attributes by creating an empty arraylist movie each time
-    // that way we ensure each new MovieCollection object begins empty, that way we can fill each new object with new the input each time
+    // that way we ensure each new data_source.MovieCollection object begins empty,
+    // that way we can fill each new object with new the input each time
     public MovieCollection() {
         filmListe = new ArrayList<>();
         filmListe.add(new Movie("java_games", "Jonathan", 2024, 20000, true, "action"));
@@ -21,6 +24,7 @@ public class MovieCollection {
         Movie movie = new Movie(title, director, yearCreated, lengthInMinutes, isInColor, genre);
         filmListe.add(movie);
     }
+
 
     @java.lang.Override
     public String toString() {
@@ -48,9 +52,7 @@ public class MovieCollection {
         if (filmSearchMatches.isEmpty()) {
             System.out.println("no match");
         }
-
         return filmSearchMatches;
-
     }
 
     public void editMovie(int i, String title, String director, int year, boolean Color, int lengthInMinutes, String genre) {
@@ -62,8 +64,6 @@ public class MovieCollection {
         m.setColor(Color);
         m.setLengthInMinutes(lengthInMinutes);
         m.setGenre(genre);
-
-
     }
 
 
@@ -72,12 +72,27 @@ public class MovieCollection {
     }
 
     public void printMovie(int i) {
-
         if (i < filmListe.size() && i >= 0) {
             System.out.println(filmListe.get(i));
-
         } else {
             System.out.println("Venligst indtast et nummer mellem 0 " + "og " + filmListe.size());
+        }
+    }
+    public Movie findMovieByTitle(String title) {
+        for (Movie movie : filmListe) {
+            if (movie.getTitle().toUpperCase().contains(title.toUpperCase())) {
+                return movie;
+            }
+        }
+        return null;
+    }
+
+    public void deleteMovie(String title) {
+        Movie movieToDelete = findMovieByTitle(title);
+        if (movieToDelete != null) {
+            filmListe.remove(movieToDelete);
+        } else {
+            System.out.println("data_source.Movie with this title does not exist");
         }
     }
 

@@ -1,3 +1,5 @@
+package data_source;
+
 import java.util.ArrayList;
 
 public class Controller {
@@ -37,6 +39,11 @@ public class Controller {
         filmListe.printMovie(i);
     }
 
-
+    public void removeMovie(String title) {
+        removeMovie(title);
+    }
+    public void deleteMovie(String title) {
+        filmListe.deleteMovie(title);
+    }
 }
 

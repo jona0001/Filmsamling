@@ -1,3 +1,5 @@
+package data_source;
+
 public class Movie {
     // mine attributes (fields)
     private String title;
@@ -9,7 +11,7 @@ public class Movie {
 
 
     //Constructor,gets called when we make an object, the constructor is called with the provided arguments (values).
-//The constructor assigns these values to the corresponding attributes (fields) of the object. kinda like attributes for the object.
+    //The constructor assigns these values to the corresponding attributes (fields) of the object.
     public Movie(String title, String director, int yearCreated,
                  int lengthInMinutes, boolean isInColor, String genre) {
         this.title = title;
@@ -70,7 +72,7 @@ public class Movie {
         this.genre = genre;
     }
 
-    // a way to override within a class, providing a string representation of an object, in this case a movie
+    //a way to override within a class, providing a string representation of an object, in this case a movie
     @java.lang.Override
     public String toString(){
         String result = "";
