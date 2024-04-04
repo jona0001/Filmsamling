@@ -1,3 +1,6 @@
 Title,Director,YearCreated,LengthInMinutes,IsInColor,Genre
 Badman,Someone,2012,123,true,Action
 Die Hard,Someoneelse,2121,233,false,Comedy
+Badman,Someone,2012,123,Yes,Action,
+Die Hard,Someoneelse,2121,233,No,Comedy,
+test,test,2000,200,Yes,horror,

@@ -91,9 +91,8 @@ public class MovieCollection {
 
     void saveListOfMovies() throws FileNotFoundException {
         PrintStream out = new PrintStream(new FileOutputStream(("movies.csv"), true));
-        for (Movie name : filmListe) {
-            out.println();
-            out.print(name);
+        for (Movie movie : filmListe) {
+            out.println(movie.toCSV());
         }
     }
 

@@ -18,7 +18,6 @@ public class UserInterface {
     public void startPrograms() throws FileNotFoundException {
         loadMovieFromFile();
         int sentinel = 9;
-
         while (menuChoice != sentinel) {
             myMenuText();
             switch (menuChoice) {
@@ -58,7 +57,6 @@ public class UserInterface {
             }
         }
         scanner.nextLine();
-
         System.out.println("input length of movie");
         boolean isDoneWithLength = false;
         int lengthInMinutes = 0;
@@ -72,7 +70,6 @@ public class UserInterface {
             }
         }
         scanner.nextLine();
-
         System.out.println("is the movie in color?, write yes or else write no");
 
         boolean isInColor = false;
@@ -88,7 +85,6 @@ public class UserInterface {
         boolean isAdded = controller.addMovie(title, director, yearCreated, lengthInMinutes, isInColor, genre);
         if(isAdded){
             System.out.printf("The movie \" %s \" is added to the collection\n", title);
-
             System.out.printf("There is now %d movies in the collection\n", controller.getMovieCollection().size());
         }
 

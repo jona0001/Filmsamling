@@ -93,6 +93,20 @@ public class Movie {
 
         return string;
     }
+    public String toCSV() {
+        // Format the movie attributes into CSV format
+        StringBuilder csvBuilder = new StringBuilder();
+        csvBuilder.append(title).append(",");
+        csvBuilder.append(director).append(",");
+        csvBuilder.append(yearCreated).append(",");
+        csvBuilder.append(lengthInMinutes).append(",");
+        csvBuilder.append(isInColor ? "Yes" : "No").append(","); // Convert boolean to "Yes" or "No"
+        csvBuilder.append(genre).append(",");
+
+        // Remove the trailing comma and return the CSV string
+        return csvBuilder.toString();
+    }
+
 
 }
 
