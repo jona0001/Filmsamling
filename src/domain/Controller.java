@@ -43,7 +43,7 @@ public class Controller {
     }
 
     public void loadMovieFromFile() throws FileNotFoundException {
-        filmListe.LoadMoviesFromFile();
+        filmListe.loadMovieFromFile();
     }
 
     public void getSaveListOfMovie() throws FileNotFoundException {
