@@ -127,7 +127,6 @@ public class UserInterface {
         int movieNumber = scanner.nextInt();
         Movie movieToEdit = controller.findOneMovieByIndex(movieNumber);
         System.out.println(movieToEdit);
-
         System.out.println("Would you like to edit the title? blank for no edit");
         String titleEdit = scanner.next();
         if (!titleEdit.isBlank()) {

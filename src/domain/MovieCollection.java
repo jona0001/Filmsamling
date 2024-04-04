@@ -62,10 +62,6 @@ public class MovieCollection {
     }
 
 
-    public Movie getMovie(int movieNumber) {
-        return filmListe.get(movieNumber);
-    }
-
 
     public Movie findMovieByTitle(String title) {
         for (Movie movie : filmListe) {

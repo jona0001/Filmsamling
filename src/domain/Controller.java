@@ -32,9 +32,7 @@ public class Controller {
     public void editMovie (int i, String title, String director, int year, boolean Color, int lengthInMinutes, String genre) {
         filmListe.editMovie(i, title, director, year, Color, lengthInMinutes, genre);
     }
-    public Movie getMovie(int movieNumber) {
-        return filmListe.getMovie(movieNumber);
-    }
+
     public Movie findOneMovieByIndex(int i) {
         return filmListe.findOneMovieByIndex(i);
     }
