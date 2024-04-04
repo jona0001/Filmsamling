@@ -1,5 +1,8 @@
 package domain;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 public class MovieCollection {
@@ -91,6 +94,16 @@ public class MovieCollection {
         }
         return isDeleted;
     }
+
+    void saveListOfMovies() throws FileNotFoundException {
+        PrintStream out = new PrintStream(new FileOutputStream(("Movies.txt"), true));
+        for (Movie name:filmListe) {
+            out.println();
+            out.print(name);
+        }
+    }
+
+
 
 }
 

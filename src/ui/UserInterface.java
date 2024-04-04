@@ -1,5 +1,7 @@
 package ui;
 import domain.*;
+
+import java.io.FileNotFoundException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 public class UserInterface {
@@ -13,7 +15,7 @@ public class UserInterface {
         controller = new Controller();
     }
 
-    public void startPrograms() {
+    public void startPrograms() throws FileNotFoundException {
         int sentinel = 9;
 
         while (menuChoice != sentinel) {
@@ -29,6 +31,8 @@ public class UserInterface {
                     editMovie();
                 case 5 ->
                     deleteMovie();
+                case 6 ->
+                    saveMovies();
             }
         }
     }
@@ -83,7 +87,6 @@ public class UserInterface {
         boolean isAdded = controller.addMovie(title, director, yearCreated, lengthInMinutes, isInColor, genre);
         if(isAdded){
             System.out.printf("The movie \" %s \" is added to the collection\n", title);
-
             System.out.printf("There is now %d movies in the collection\n", controller.getMovieCollection().size());
         }
 
@@ -185,6 +188,10 @@ public class UserInterface {
         }else{
             System.out.printf("Movie with title \" %s \" does not exist\n", title);
         }
+    }
+
+    public void saveMovies() throws FileNotFoundException {
+        controller.getSaveListOfMovie();
     }
 }
 
