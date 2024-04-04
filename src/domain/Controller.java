@@ -39,8 +39,8 @@ public class Controller {
         filmListe.printMovie(i);
     }
 
-    public void deleteMovie(String title) {
-        filmListe.deleteMovie(title);
+    public boolean deleteMovie(String title) {
+        return filmListe.deleteMovie(title);
     }
 }
 

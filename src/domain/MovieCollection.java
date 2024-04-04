@@ -83,13 +83,13 @@ public class MovieCollection {
         return null;
     }
 
-    public void deleteMovie(String title) {
+    public boolean deleteMovie(String title) {
         Movie movieToDelete = findMovieByTitle(title);
+        boolean isDeleted = false;
         if (movieToDelete != null) {
-            filmListe.remove(movieToDelete);
-        } else {
-            System.out.println("Movie not found!");
+            isDeleted = filmListe.remove(movieToDelete);
         }
+        return isDeleted;
     }
 
 }

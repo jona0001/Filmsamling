@@ -182,8 +182,12 @@ public class UserInterface {
     public void deleteMovie() {
         System.out.println("Insert title of a movie to delete: ");
         String title = scanner.next();
-        controller.deleteMovie(title);
-        System.out.println("Movie deleted successfully!");
+        boolean isDeleted = controller.deleteMovie(title);
+        if(isDeleted){
+            System.out.printf("Movie \" %s \" was successfully deleted\n", title);
+        }else{
+            System.out.printf("Movie with title \" %s \" does not exist\n", title);
+        }
         myMenuText();
 
     }
