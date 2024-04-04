@@ -15,7 +15,7 @@ public class UserInterface {
         controller = new Controller();
     }
 
-    public void startPrograms() {
+    public void startPrograms() throws FileNotFoundException {
         int sentinel = 9;
 
         while (menuChoice != sentinel) {
@@ -31,6 +31,10 @@ public class UserInterface {
                     editMovie();
                 case 5 ->
                     deleteMovie();
+                case 6 ->
+                    loadMovieFromFile();
+                case 7 ->
+                    saveMovies();
             }
         }
     }
@@ -113,6 +117,8 @@ public class UserInterface {
         System.out.println("3: to search in your movie collection");
         System.out.println("4: to edit a movie in your collection");
         System.out.println("5: to delete a movie in your collection");
+        System.out.println("6: load movie from file");
+        System.out.println("7: save movies to file");
         System.out.println("9: to end program");
         System.out.println("*****************");
         try {
@@ -151,7 +157,6 @@ public class UserInterface {
         } else {
             yearEdit = movieToEdit.getYearCreated();
         }
-
 
         System.out.println("Would you like to edit the color? true/false for no edit");
         boolean colorEdit = scanner.nextBoolean();
