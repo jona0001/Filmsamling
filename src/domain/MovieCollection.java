@@ -14,9 +14,10 @@ public class MovieCollection {
         filmListe = new ArrayList<>();
     }
 
-    public void addMovie(String title, String director, int yearCreated, int lengthInMinutes, boolean isInColor, String genre) {
+    public boolean addMovie(String title, String director, int yearCreated, int lengthInMinutes, boolean isInColor, String genre) {
         Movie movie = new Movie(title, director, yearCreated, lengthInMinutes, isInColor, genre);
-        filmListe.add(movie);
+        boolean isAdded = filmListe.add(movie);
+        return isAdded;
     }
 
 

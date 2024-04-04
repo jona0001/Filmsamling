@@ -10,9 +10,9 @@ public class Controller {
         filmListe = new MovieCollection();
     }
     // Step 3: Add movie use case controller
-    public void addMovie (String title, String director, int yearCreated,
+    public boolean addMovie (String title, String director, int yearCreated,
                           int lengthInMinutes, boolean isInColor, String genre){
-        filmListe.addMovie(title, director, yearCreated, lengthInMinutes, isInColor, genre);
+        return filmListe.addMovie(title, director, yearCreated, lengthInMinutes, isInColor, genre);
     }
 
     // user case 4 getter

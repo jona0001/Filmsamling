@@ -79,7 +79,12 @@ public class UserInterface {
 
         System.out.println("input genre of movie");
         String genre = scanner.next();
-        controller.addMovie(title, director, yearCreated, lengthInMinutes, isInColor, genre);
+        boolean isAdded = controller.addMovie(title, director, yearCreated, lengthInMinutes, isInColor, genre);
+        if(isAdded){
+            System.out.printf("The movie \" %s \" is added to the collection\n", title);
+
+            System.out.printf("There is now %d movies in the collection\n", controller.getMovieCollection().size());
+        }
         myMenuText();
 
     }
