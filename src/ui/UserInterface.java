@@ -16,6 +16,7 @@ public class UserInterface {
     }
 
     public void startPrograms() throws FileNotFoundException {
+        loadMovieFromFile();
         int sentinel = 9;
 
         while (menuChoice != sentinel) {
