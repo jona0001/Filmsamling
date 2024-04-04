@@ -3,7 +3,10 @@ package domain;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class MovieCollection {
     // an attribute of an empty Arraylist that will store instances of the movie class
@@ -105,5 +108,11 @@ public class MovieCollection {
 
 
 
+    public void LoadMoviesFromFile() throws FileNotFoundException {
+        Scanner scanner = new Scanner(new File("movies.txt"));
+        while (scanner.hasNextLine()) {
+            System.out.println(scanner.nextLine());
+        }
+    }
 }
 

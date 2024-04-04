@@ -44,6 +44,10 @@ public class Controller {
         return filmListe.deleteMovie(title);
     }
 
+    public void loadMovieFromFile() throws FileNotFoundException {
+        filmListe.LoadMoviesFromFile();
+    }
+
     public void getSaveListOfMovie() throws FileNotFoundException {
         filmListe.saveListOfMovies();
     }
@@ -52,4 +56,5 @@ public class Controller {
 
 
 }
+
 

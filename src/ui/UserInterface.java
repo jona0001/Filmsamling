@@ -15,7 +15,7 @@ public class UserInterface {
         controller = new Controller();
     }
 
-    public void startPrograms() throws FileNotFoundException {
+    public void startPrograms() {
         int sentinel = 9;
 
         while (menuChoice != sentinel) {
@@ -31,8 +31,6 @@ public class UserInterface {
                     editMovie();
                 case 5 ->
                     deleteMovie();
-                case 6 ->
-                    saveMovies();
             }
         }
     }
@@ -87,6 +85,7 @@ public class UserInterface {
         boolean isAdded = controller.addMovie(title, director, yearCreated, lengthInMinutes, isInColor, genre);
         if(isAdded){
             System.out.printf("The movie \" %s \" is added to the collection\n", title);
+
             System.out.printf("There is now %d movies in the collection\n", controller.getMovieCollection().size());
         }
 
@@ -192,6 +191,10 @@ public class UserInterface {
 
     public void saveMovies() throws FileNotFoundException {
         controller.getSaveListOfMovie();
+    }
+
+    public void loadMovieFromFile() throws FileNotFoundException {
+        controller.loadMovieFromFile();
     }
 }
 
