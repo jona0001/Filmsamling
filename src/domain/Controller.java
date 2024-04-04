@@ -1,5 +1,6 @@
 package domain;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class Controller {
@@ -40,5 +41,13 @@ public class Controller {
     public boolean deleteMovie(String title) {
         return filmListe.deleteMovie(title);
     }
+
+    public void getSaveListOfMovie() throws FileNotFoundException {
+        filmListe.saveListOfMovies();
+    }
+
+
+
+
 }
 
