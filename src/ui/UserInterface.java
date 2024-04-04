@@ -15,13 +15,14 @@ public class UserInterface {
 
     public void startPrograms() {
         int sentinel = 9;
-        myMenuText();
+
         while (menuChoice != sentinel) {
+            myMenuText();
             switch (menuChoice) {
                 case 1 ->
                     createMovie();
                 case 2 ->
-                    printMovieCollections();
+                    printMovieCollection();
                 case 3 ->
                     searchInMovieCollections();
                 case 4 ->
@@ -85,24 +86,22 @@ public class UserInterface {
 
             System.out.printf("There is now %d movies in the collection\n", controller.getMovieCollection().size());
         }
-        myMenuText();
 
     }
 
-    public void printMovieCollections() {
+    public void printMovieCollection() {
         System.out.println("Your movie collection:");
-        for(Movie movie : controller.showMovieCollection()){
-            System.out.println(movie);
+        for (int i = 0; i < controller.showMovieCollection().size(); i++){
+            System.out.printf("%d. ", i);
+            System.out.println(controller.showMovieCollection().get(i));
         }
-
-        myMenuText();
     }
+
 
     public void searchInMovieCollections() {
         System.out.println("write name of movie you are looking for");
         String userSearchWord = scanner.next();
         System.out.println(controller.showSearch(userSearchWord));
-        myMenuText();
     }
 
 
@@ -124,9 +123,8 @@ public class UserInterface {
     }
 
     public void editMovie() {
-
-        System.out.println(controller.showMovieCollection());
-        System.out.println("type the number of the movie you want to edit:");
+        printMovieCollection();
+        System.out.println("Type the number of the movie you want to edit:");
         int movieNumber = scanner.nextInt();
         controller.printMovie(movieNumber - 1);
         Movie m = controller.getMovie(movieNumber - 1);
@@ -176,7 +174,6 @@ public class UserInterface {
             genreEdit = m.getGenre();
         }
         controller.editMovie(movieNumber, titleEdit, directorEdit, yearEdit, colorEdit, lengthEdit, genreEdit);
-        myMenuText();
     }
 
     public void deleteMovie() {
@@ -188,8 +185,6 @@ public class UserInterface {
         }else{
             System.out.printf("Movie with title \" %s \" does not exist\n", title);
         }
-        myMenuText();
-
     }
 }
 
