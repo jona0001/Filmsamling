@@ -39,11 +39,33 @@ public class UserInterface {
         System.out.println("input director");
         String director = scanner.next();
 
-        System.out.println("input year of movie");
-        int yearCreated = scanner.nextInt();
+        System.out.println("input yearCreated of movie");
+        boolean isDoneWithYear = false;
+        int yearCreated = 0;
+        while (!isDoneWithYear){
+            try {
+                yearCreated = scanner.nextInt();
+                isDoneWithYear = true;
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter year as a number: ");
+                scanner.nextLine();
+            }
+        }
+        scanner.nextLine();
 
         System.out.println("input lenght of movie");
-        double lengthInMinutes = scanner.nextDouble();
+        boolean isDoneWithLength = false;
+        int lengthInMinutes = 0;
+        while(!isDoneWithLength) {
+            try {
+                lengthInMinutes = scanner.nextInt();
+                isDoneWithLength = true;
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter length in minutes as a number :");
+                scanner.nextLine();
+            }
+        }
+        scanner.nextLine();
 
         System.out.println("is the movie in color?, write yes or else write no");
 
@@ -57,7 +79,7 @@ public class UserInterface {
 
         System.out.println("input genre of movie");
         String genre = scanner.next();
-        controller.addMovie(title, director, yearCreated, (int) lengthInMinutes, isInColor, genre);
+        controller.addMovie(title, director, yearCreated, lengthInMinutes, isInColor, genre);
         myMenuText();
 
     }

@@ -39,7 +39,7 @@ public class MovieCollection {
         ArrayList<Movie> filmSearchMatches = new ArrayList<>();
 
         for (Movie sm : filmListe) {
-            if (sm.getTitle().toLowerCase().contains(searchMovieInput)) {
+            if (sm.getTitle().toLowerCase().contains(searchMovieInput.toLowerCase())) {
                 filmSearchMatches.add(sm);
             }
         }
@@ -72,6 +72,7 @@ public class MovieCollection {
             System.out.println("Venligst indtast et nummer mellem 0 " + "og " + filmListe.size());
         }
     }
+
     public Movie findMovieByTitle(String title) {
         for (Movie movie : filmListe) {
             if (movie.getTitle().toUpperCase().contains(title.toUpperCase())) {
@@ -86,8 +87,8 @@ public class MovieCollection {
         if (movieToDelete != null) {
             filmListe.remove(movieToDelete);
         } else {
-        System.out.println("Movie not found!");
-    }
+            System.out.println("Movie not found!");
+        }
     }
 
 }
