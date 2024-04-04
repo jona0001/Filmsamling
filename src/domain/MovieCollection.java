@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -92,7 +91,7 @@ public class MovieCollection {
     }
 
     void saveListOfMovies() throws FileNotFoundException {
-        PrintStream out = new PrintStream(new FileOutputStream(("Movies.txt"), true));
+        PrintStream out = new PrintStream(new FileOutputStream(("movies.csv"), true));
         for (Movie name:filmListe) {
             out.println();
             out.print(name);
@@ -102,7 +101,7 @@ public class MovieCollection {
 
 
     public void LoadMoviesFromFile() throws FileNotFoundException {
-        Scanner scanner = new Scanner(new File("movies.txt"));
+        Scanner scanner = new Scanner(new File("movies.csv"));
         while (scanner.hasNextLine()) {
             System.out.println(scanner.nextLine());
         }
