@@ -16,8 +16,8 @@ public class Controller {
     }
 
     // user case 4 getter
-    public String showMovieCollection (){
-        return filmListe.toString();
+    public ArrayList<Movie> showMovieCollection (){
+        return filmListe.getFilmListe();
     }
 
     // getter for movie collection

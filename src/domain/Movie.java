@@ -74,19 +74,24 @@ public class Movie {
     }
 
     //a way to override within a class, providing a string representation of an object, in this case a movie
-    @java.lang.Override
+    @Override
     public String toString(){
-        String result = "";
-        result += "\nthe title is " + title + " " + " \nthe director is " + director + " " + "\nthe year the movie is created in is " + yearCreated;
-
-        if (isInColor) {
-            result += " " + "\nfilmen er i farve";
-        } else {
-            result += " " + "\nfilmen er ikke i farve";
+        String string =
+                "Title:" + title + "\n" +
+                        "Director:" + director + "\n" +
+                        "Year created:" + yearCreated + "\n" +
+                        "Coloured movie:";
+        if(isInColor){
+            string+= "yes\n";
+        }else{
+            string+="no\n";
         }
 
-        result +=  "\nmovie length is " +lengthInMinutes + "\nthe genre is " + genre;
-        return result;
+        string +=
+                "Length(min):" + lengthInMinutes + "\n" +
+                        "Genre:" + genre + '\n';
+
+        return string;
     }
 
 }

@@ -53,7 +53,7 @@ public class UserInterface {
         }
         scanner.nextLine();
 
-        System.out.println("input lenght of movie");
+        System.out.println("input length of movie");
         boolean isDoneWithLength = false;
         int lengthInMinutes = 0;
         while(!isDoneWithLength) {
@@ -61,7 +61,7 @@ public class UserInterface {
                 lengthInMinutes = scanner.nextInt();
                 isDoneWithLength = true;
             } catch (InputMismatchException e) {
-                System.out.println("Please enter length in minutes as a number :");
+                System.out.println("Please enter length in minutes as a number:");
                 scanner.nextLine();
             }
         }
@@ -85,8 +85,11 @@ public class UserInterface {
     }
 
     public void printMovieCollections() {
-        System.out.println("\n din film collection");
-        System.out.println(controller.showMovieCollection());
+        System.out.println("Your movie collection:");
+        for(Movie movie : controller.showMovieCollection()){
+            System.out.println(movie);
+        }
+
         myMenuText();
     }
 
@@ -106,6 +109,7 @@ public class UserInterface {
         System.out.println("4: to edit a movie in your collection");
         System.out.println("5: to delete a movie in your collection");
         System.out.println("9: to end program");
+        System.out.println("*****************");
         try {
             menuChoice = scanner.nextInt();
         } catch (InputMismatchException ime) {
