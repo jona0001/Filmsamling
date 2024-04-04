@@ -66,13 +66,6 @@ public class MovieCollection {
         return filmListe.get(movieNumber);
     }
 
-    public void printMovie(int i) {
-        if (i < filmListe.size() && i >= 0) {
-            System.out.println(filmListe.get(i));
-        } else {
-            System.out.println("Venligst indtast et nummer mellem 0 " + "og " + filmListe.size());
-        }
-    }
 
     public Movie findMovieByTitle(String title) {
         for (Movie movie : filmListe) {
@@ -81,6 +74,10 @@ public class MovieCollection {
             }
         }
         return null;
+    }
+
+    public Movie findOneMovieByIndex(int index){
+        return filmListe.get(index);
     }
 
     public boolean deleteMovie(String title) {

@@ -97,7 +97,6 @@ public class UserInterface {
         }
     }
 
-
     public void searchInMovieCollections() {
         System.out.println("write name of movie you are looking for");
         String userSearchWord = scanner.next();
@@ -126,52 +125,53 @@ public class UserInterface {
         printMovieCollection();
         System.out.println("Type the number of the movie you want to edit:");
         int movieNumber = scanner.nextInt();
-        controller.printMovie(movieNumber - 1);
-        Movie m = controller.getMovie(movieNumber - 1);
+        Movie movieToEdit = controller.findOneMovieByIndex(movieNumber);
+        System.out.println(movieToEdit);
+
         System.out.println("Would you like to edit the title? blank for no edit");
         String titleEdit = scanner.next();
         if (!titleEdit.isBlank()) {
-            m.setTitle(titleEdit);
+            movieToEdit.setTitle(titleEdit);
         } else {
-            titleEdit = m.getTitle();
+            titleEdit = movieToEdit.getTitle();
         }
         System.out.println("Would you like to edit the director? blank for no edit");
         String directorEdit = scanner.next();
         if (!directorEdit.isBlank()) {
-            m.setDirector(directorEdit);
+            movieToEdit.setDirector(directorEdit);
         } else {
-            directorEdit = m.getDirector();
+            directorEdit = movieToEdit.getDirector();
         }
 
         System.out.println("Would you like to edit the year? 0 for no edit");
         int yearEdit = scanner.nextInt();
         if (yearEdit != 0) {
-            m.setYear(yearEdit);
+            movieToEdit.setYear(yearEdit);
         } else {
-            yearEdit = m.getYearCreated();
+            yearEdit = movieToEdit.getYearCreated();
         }
 
 
         System.out.println("Would you like to edit the color? true/false for no edit");
         boolean colorEdit = scanner.nextBoolean();
-        if (colorEdit != m.isInColor()) {
-            m.setColor(colorEdit);
+        if (colorEdit != movieToEdit.isInColor()) {
+            movieToEdit.setColor(colorEdit);
         }
 
         System.out.println("Would you like to edit the length in minutes? 0 for no edit");
         int lengthEdit = scanner.nextInt();
         if (lengthEdit != 0) {
-            m.setLengthInMinutes(lengthEdit);
+            movieToEdit.setLengthInMinutes(lengthEdit);
         } else {
-            lengthEdit = (int) m.getLengthInMinutes();
+            lengthEdit = (int) movieToEdit.getLengthInMinutes();
         }
 
         System.out.println("Would you like to edit the genre? blank for no edit");
         String genreEdit = scanner.next();
         if (!genreEdit.isBlank()) {
-            m.setGenre(genreEdit);
+            movieToEdit.setGenre(genreEdit);
         } else {
-            genreEdit = m.getGenre();
+            genreEdit = movieToEdit.getGenre();
         }
         controller.editMovie(movieNumber, titleEdit, directorEdit, yearEdit, colorEdit, lengthEdit, genreEdit);
     }

@@ -35,8 +35,8 @@ public class Controller {
     public Movie getMovie(int movieNumber) {
         return filmListe.getMovie(movieNumber);
     }
-    public void printMovie (int i) {
-        filmListe.printMovie(i);
+    public Movie findOneMovieByIndex(int i) {
+        return filmListe.findOneMovieByIndex(i);
     }
 
     public boolean deleteMovie(String title) {
