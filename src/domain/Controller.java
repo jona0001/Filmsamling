@@ -1,4 +1,6 @@
 package domain;
+import datasource.*;
+import datasource.FileHandler;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -43,14 +45,12 @@ public class Controller {
     }
 
     public void loadMovieFromFile() throws FileNotFoundException {
-        filmListe.loadMovieFromFile();
+        FileHandler.loadMovieFromFile();
     }
 
     public void getSaveListOfMovie() throws FileNotFoundException {
-        filmListe.saveListOfMovies();
+        FileHandler.saveListOfMovies();
     }
-
-
 
 
 }

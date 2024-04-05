@@ -86,7 +86,6 @@ public class Movie {
         }else{
             string+="no\n";
         }
-
         string +=
                 "Length(min):" + lengthInMinutes + "\n" +
                         "Genre:" + genre + '\n';

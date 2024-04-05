@@ -1,6 +1,5 @@
 package datasource;
-import domain.Movie;
-import domain.Controller;
+import domain.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -9,9 +8,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FileHandler {
-
     Controller controller = new Controller();
-    void saveListOfMovies() throws FileNotFoundException {
+    public void saveListOfMovies() throws FileNotFoundException {
         PrintStream out = new PrintStream(new FileOutputStream(("movies.csv"), true));
         for (Movie movie : controller.addMovie()) {
             out.println(movie.toCSV());
@@ -39,10 +37,9 @@ public class FileHandler {
                     (Boolean.parseBoolean(attributes[4])), // length
                     (attributes[5])); // genre
 
-            filmListe.add(addMovieToDB);
+            controller.add(addMovieToDB);
         }
         sc.close();
         return moviesFromCSVArr;
     }
-
 }
