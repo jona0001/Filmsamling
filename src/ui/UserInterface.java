@@ -188,7 +188,7 @@ public class UserInterface {
     }
 
     public void saveMovies() throws FileNotFoundException {
-        controller.getSaveListOfMovie();
+        controller.saveListOfMovie();
     }
 
     public void loadMovieFromFile() throws FileNotFoundException {

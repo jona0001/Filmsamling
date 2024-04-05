@@ -8,9 +8,12 @@ import java.util.ArrayList;
 public class Controller {
     // attribute that holds the movie collection
     private MovieCollection filmListe;
+    private FileHandler fileHandler;
     //Constructor initializes the movie collection
     public Controller() {
-        filmListe = new MovieCollection();
+        fileHandler = new FileHandler();
+        filmListe = new MovieCollection(fileHandler.loadMovieFromFile());
+
     }
     // Step 3: Add movie use case controller
     public boolean addMovie (String title, String director, int yearCreated,
@@ -45,11 +48,11 @@ public class Controller {
     }
 
     public void loadMovieFromFile() throws FileNotFoundException {
-        FileHandler.loadMovieFromFile();
+        fileHandler.loadMovieFromFile();
     }
 
-    public void getSaveListOfMovie() throws FileNotFoundException {
-        FileHandler.saveListOfMovies();
+    public void saveListOfMovie() throws FileNotFoundException {
+        fileHandler.saveListOfMovies(filmListe.getFilmListe());
     }
 
 

@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FileHandler {
-    Controller controller = new Controller();
-    public void saveListOfMovies() throws FileNotFoundException {
+
+    public void saveListOfMovies(ArrayList<Movie> movies) throws FileNotFoundException {
         PrintStream out = new PrintStream(new FileOutputStream(("movies.csv"), true));
-        for (Movie movie : controller.addMovie()) {
+        for (Movie movie : movies) {
             out.println(movie.toCSV());
         }
     }
@@ -37,7 +37,7 @@ public class FileHandler {
                     (Boolean.parseBoolean(attributes[4])), // length
                     (attributes[5])); // genre
 
-            controller.add(addMovieToDB);
+
         }
         sc.close();
         return moviesFromCSVArr;

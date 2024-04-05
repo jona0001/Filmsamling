@@ -15,8 +15,9 @@ public class MovieCollection {
     //this constructor initializes the filmListe attributes by creating an empty arraylist movie each time
     // that way we ensure each new domain.Movie.MovieCollection object begins empty,
     // that way we can fill each new object with new the input each time
-    public MovieCollection() {
-        filmListe = new ArrayList<>();
+    public MovieCollection(ArrayList<Movie> movies) {
+        filmListe = movies;
+
     }
 
     public boolean addMovie(String title, String director, int yearCreated, int lengthInMinutes, boolean isInColor, String genre) {
