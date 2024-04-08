@@ -21,7 +21,7 @@ public class FileHandler {
         PrintStream out = new PrintStream(new FileOutputStream(("movies.csv"), true));
         out.println(movie.toCSV());
     }
-    public ArrayList<Movie> loadMovieFromFile() {
+    public ArrayList<Movie> loadMoviesFromFile() {
         File moviesDB = new File("movies.csv");
         ArrayList<Movie> moviesFromCSVArr = new ArrayList();
         Scanner sc;
@@ -34,14 +34,14 @@ public class FileHandler {
         while (sc.hasNext()) {
             String line = sc.nextLine();
             String[] attributes = line.split(",");
-            Movie movies = new Movie(
+            Movie movie = new Movie(
                     (attributes[0]), // title
                     (attributes[1]), // director
                     (Integer.parseInt(attributes[2])), // year created
                     (Integer.parseInt(attributes[3])), // isInColor
                     (Boolean.parseBoolean(attributes[4])), // length
                     (attributes[5])); // genre
-            moviesFromCSVArr.add(movies);
+            moviesFromCSVArr.add(movie);
         }
         sc.close();
         return moviesFromCSVArr;

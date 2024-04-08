@@ -3,11 +3,7 @@ package domain;
 import datasource.FileHandler;
 
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class MovieCollection {
     // an attribute of an empty Arraylist that will store instances of the movie class

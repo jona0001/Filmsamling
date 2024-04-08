@@ -1,7 +1,5 @@
 package domain;
-import datasource.*;
 import datasource.FileHandler;
-
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
@@ -12,7 +10,7 @@ public class Controller {
     //Constructor initializes the movie collection
     public Controller() {
         fileHandler = new FileHandler();
-        filmListe = new MovieCollection(fileHandler.loadMovieFromFile());
+        filmListe = new MovieCollection(fileHandler.loadMoviesFromFile());
 
     }
     // Step 3: Add movie use case controller
@@ -48,7 +46,7 @@ public class Controller {
     }
 
     public void loadMovieFromFile() throws FileNotFoundException {
-        fileHandler.loadMovieFromFile();
+        fileHandler.loadMoviesFromFile();
     }
 
     public void saveListOfMovie() throws FileNotFoundException {

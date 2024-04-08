@@ -38,13 +38,13 @@ public class UserInterface {
     }
 
     public void createMovie() throws FileNotFoundException {
-        System.out.println("input movie title");
+        System.out.println("Input movie title:");
         String title = scanner.next();
 
-        System.out.println("input director");
+        System.out.println("Input director:");
         String director = scanner.next();
 
-        System.out.println("input yearCreated of movie");
+        System.out.println("Input the year when the modie was created:");
         boolean isDoneWithYear = false;
         int yearCreated = 0;
         while (!isDoneWithYear){
@@ -57,7 +57,7 @@ public class UserInterface {
             }
         }
         scanner.nextLine();
-        System.out.println("input length of movie");
+        System.out.println("Input the length of the movie:");
         boolean isDoneWithLength = false;
         int lengthInMinutes = 0;
         while(!isDoneWithLength) {
@@ -70,7 +70,7 @@ public class UserInterface {
             }
         }
         scanner.nextLine();
-        System.out.println("is the movie in color?, write yes or else write no");
+        System.out.println("Is the movie in color?, type yes or no:");
 
         boolean isInColor = false;
         if (scanner.next().equalsIgnoreCase("yes")) {
@@ -80,7 +80,7 @@ public class UserInterface {
             //    }
         }
 
-        System.out.println("input genre of movie");
+        System.out.println("Input the genre of the movie:");
         String genre = scanner.next();
         boolean isAdded = controller.addMovie(title, director, yearCreated, lengthInMinutes, isInColor, genre);
         if(isAdded){
@@ -99,7 +99,7 @@ public class UserInterface {
     }
 
     public void searchInMovieCollections() {
-        System.out.println("write name of movie you are looking for");
+        System.out.println("Input the name of the movie you are looking for:");
         String userSearchWord = scanner.next();
         System.out.println(controller.showSearch(userSearchWord));
     }
@@ -107,13 +107,13 @@ public class UserInterface {
 
     public void myMenuText() {
         System.out.println("***** Menu *****");
-        System.out.println("1. add a new movie");
-        System.out.println("2: to print out your movie collections");
-        System.out.println("3: to search in your movie collection");
-        System.out.println("4: to edit a movie in your collection");
-        System.out.println("5: to delete a movie in your collection");
-        System.out.println("6: save movies to file");
-        System.out.println("9: to end program");
+        System.out.println("1. Add new movie");
+        System.out.println("2: Print out all your movies");
+        System.out.println("3: Search for a movie in the collection");
+        System.out.println("4: Edit a movie");
+        System.out.println("5: Delete a movie");
+        System.out.println("6: Save movies to the file");
+        System.out.println("9: Exit");
         System.out.println("*****************");
         try {
             menuChoice = scanner.nextInt();
