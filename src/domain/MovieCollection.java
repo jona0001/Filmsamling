@@ -1,9 +1,11 @@
 package domain;
 
 import datasource.FileHandler;
+import utility.MovieNameComparator;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MovieCollection {
     // an attribute of an empty Arraylist that will store instances of the movie class
@@ -40,6 +42,7 @@ public class MovieCollection {
 
     //getter that allows me to get the film list outside of this class
     public ArrayList<Movie> getFilmListe() {
+        Collections.sort(filmListe, new MovieNameComparator());
         return filmListe;
     }
 
