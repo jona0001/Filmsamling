@@ -37,7 +37,7 @@ public class UserInterface {
         }
     }
 
-    public void createMovie() {
+    public void createMovie() throws FileNotFoundException {
         System.out.println("input movie title");
         String title = scanner.next();
 

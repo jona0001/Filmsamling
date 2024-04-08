@@ -1,5 +1,7 @@
 package domain;
 
+import datasource.FileHandler;
+
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
@@ -11,18 +13,22 @@ public class MovieCollection {
     // an attribute of an empty Arraylist that will store instances of the movie class
     // so a list with a lot of movies on it
     private ArrayList<Movie> filmListe;
+    private FileHandler fileHandler = new FileHandler();
 
     //this constructor initializes the filmListe attributes by creating an empty arraylist movie each time
     // that way we ensure each new domain.Movie.MovieCollection object begins empty,
     // that way we can fill each new object with new the input each time
     public MovieCollection(ArrayList<Movie> movies) {
         filmListe = movies;
-
     }
 
-    public boolean addMovie(String title, String director, int yearCreated, int lengthInMinutes, boolean isInColor, String genre) {
+    public MovieCollection() {
+    }
+
+    public boolean addMovie(String title, String director, int yearCreated, int lengthInMinutes, boolean isInColor, String genre) throws FileNotFoundException {
         Movie movie = new Movie(title, director, yearCreated, lengthInMinutes, isInColor, genre);
         boolean isAdded = filmListe.add(movie);
+        fileHandler.saveOneMovie(movie);
         return isAdded;
     }
 

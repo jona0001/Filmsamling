@@ -9,11 +9,17 @@ import java.util.Scanner;
 
 public class FileHandler {
 
+
     public void saveListOfMovies(ArrayList<Movie> movies) throws FileNotFoundException {
         PrintStream out = new PrintStream(new FileOutputStream(("movies.csv"), true));
         for (Movie movie : movies) {
             out.println(movie.toCSV());
         }
+    }
+
+    public void saveOneMovie(Movie movie) throws FileNotFoundException {
+        PrintStream out = new PrintStream(new FileOutputStream(("movies.csv"), true));
+        out.println(movie.toCSV());
     }
     public ArrayList<Movie> loadMovieFromFile() {
         File moviesDB = new File("movies.csv");

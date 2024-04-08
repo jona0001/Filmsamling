@@ -17,7 +17,7 @@ public class Controller {
     }
     // Step 3: Add movie use case controller
     public boolean addMovie (String title, String director, int yearCreated,
-                          int lengthInMinutes, boolean isInColor, String genre){
+                          int lengthInMinutes, boolean isInColor, String genre) throws FileNotFoundException {
         return filmListe.addMovie(title, director, yearCreated, lengthInMinutes, isInColor, genre);
     }
 

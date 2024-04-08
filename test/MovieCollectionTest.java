@@ -4,12 +4,14 @@ import domain.MovieCollection;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.FileNotFoundException;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MovieCollectionTest {
 
     @Test
-    void addMovie() {
+    void addMovie() throws FileNotFoundException {
         //arrange
         MovieCollection movieCollection = new MovieCollection();
         movieCollection.addMovie("javatest", "Jonathan", 2005, 200, true, "horror");
@@ -21,7 +23,7 @@ class MovieCollectionTest {
     }
 
     @Test
-    void getFilmListe() {
+    void getFilmListe() throws FileNotFoundException {
         //Arrange
         MovieCollection movieCollection = new MovieCollection();
         movieCollection.addMovie("javaGame", "Jonathan", 2024, 20000, true, "action");
