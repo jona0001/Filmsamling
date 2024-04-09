@@ -52,8 +52,9 @@ public class Controller {
     public void saveListOfMovie() throws FileNotFoundException {
         fileHandler.saveListOfMovies(filmListe.getFilmListe());
     }
-
-
+    public void sortMoviesByAttribute(String attribute) {
+        filmListe.sortMoviesByAttribute(attribute);
+    }
 }
 
 

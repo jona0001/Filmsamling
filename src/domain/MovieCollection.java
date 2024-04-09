@@ -94,6 +94,8 @@ public class MovieCollection {
         }
         return isDeleted;
     }
+    public void sortMoviesByAttribute(String attribut) {
+    }
 
 }
 

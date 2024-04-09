@@ -194,6 +194,45 @@ public class UserInterface {
     public void loadMovieFromFile() throws FileNotFoundException {
         controller.loadMovieFromFile();
     }
+    public void sortMoviesByAttribute() {
+        System.out.println("Vælg attribut til sortering:");
+        System.out.println("1. Titel");
+        System.out.println("2. Instruktør");
+        System.out.println("3. År oprettet");
+        System.out.println("4. Længde i minutter");
+        System.out.println("5. Farve");
+        System.out.println("6. Genre");
+
+        int choice = scanner.nextInt();
+        String attribute;
+        switch (choice) {
+            case 1:
+                attribute = "title";
+                break;
+            case 2:
+                attribute = "director";
+                break;
+            case 3:
+                attribute = "year";
+                break;
+            case 4:
+                attribute = "length";
+                break;
+            case 5:
+                attribute = "color";
+                break;
+            case 6:
+                attribute = "genre";
+                break;
+            default:
+                System.out.println("Ugyldigt valg");
+                return;
+        }
+
+        // Sorter filmene efter den valgte attribut
+        controller.sortMoviesByAttribute(attribute);
+        printMovieCollection();
+    }
 }
 
 
