@@ -1,6 +1,6 @@
 package domain;
 
-
+// Movies are great to watch because they make you think about life. #deep
 public class Movie {
     // mine attributes (fields)
     private String title;
