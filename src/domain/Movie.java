@@ -77,18 +77,18 @@ public class Movie {
     @Override
     public String toString(){
         String string =
-                "Title:" + title + "\n" +
-                        "Director:" + director + "\n" +
-                        "Year created:" + yearCreated + "\n" +
-                        "Coloured movie:";
+                "Title: " + title + "\n" +
+                        "Director: " + director + "\n" +
+                        "Year created: " + yearCreated + "\n" +
+                        "Coloured movie: ";
         if(isInColor){
             string+= "yes\n";
         }else{
             string+="no\n";
         }
         string +=
-                "Length(min):" + lengthInMinutes + "\n" +
-                        "Genre:" + genre + '\n';
+                "Length(min): " + lengthInMinutes + "\n" +
+                        "Genre: " + genre + '\n';
 
         return string;
     }

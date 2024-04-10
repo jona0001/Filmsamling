@@ -1,7 +1,9 @@
 package ui;
 import domain.*;
+import org.w3c.dom.ls.LSOutput;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 public class UserInterface {
@@ -21,16 +23,12 @@ public class UserInterface {
         while (menuChoice != sentinel) {
             myMenuText();
             switch (menuChoice) {
-                case 1 ->
-                    createMovie();
-                case 2 ->
-                    printMovieCollection();
-                case 3 ->
-                    searchInMovieCollections();
-                case 4 ->
-                    editMovie();
-                case 5 ->
-                    deleteMovie();
+                case 1 -> createMovie();
+                case 2 -> printMovieCollection();
+                case 3 -> searchInMovieCollections();
+                case 4 -> editMovie();
+                case 5 -> deleteMovie();
+                case 6 -> sortMoviesByAttribute();
             }
         }
     }
@@ -45,7 +43,7 @@ public class UserInterface {
         System.out.println("Input the year when the modie was created:");
         boolean isDoneWithYear = false;
         int yearCreated = 0;
-        while (!isDoneWithYear){
+        while (!isDoneWithYear) {
             try {
                 yearCreated = scanner.nextInt();
                 isDoneWithYear = true;
@@ -58,7 +56,7 @@ public class UserInterface {
         System.out.println("Input the length of the movie:");
         boolean isDoneWithLength = false;
         int lengthInMinutes = 0;
-        while(!isDoneWithLength) {
+        while (!isDoneWithLength) {
             try {
                 lengthInMinutes = scanner.nextInt();
                 isDoneWithLength = true;
@@ -81,7 +79,7 @@ public class UserInterface {
         System.out.println("Input the genre of the movie:");
         String genre = scanner.next();
         boolean isAdded = controller.addMovie(title, director, yearCreated, lengthInMinutes, isInColor, genre);
-        if(isAdded){
+        if (isAdded) {
             System.out.printf("The movie \" %s \" is added to the collection\n", title);
             System.out.printf("There is now %d movies in the collection\n", controller.getMovieCollection().size());
         }
@@ -90,8 +88,9 @@ public class UserInterface {
 
     public void printMovieCollection() {
         System.out.println("Your movie collection:");
-        for (int i = 0; i < controller.showMovieCollection().size(); i++){
+        for (int i = 0; i < controller.showMovieCollection().size(); i++) {
             System.out.printf("%d. ", i);
+            System.out.println();
             System.out.println(controller.showMovieCollection().get(i));
         }
     }
@@ -178,56 +177,62 @@ public class UserInterface {
         System.out.println("Insert title of a movie to delete: ");
         String title = scanner.next();
         boolean isDeleted = controller.deleteMovie(title);
-        if(isDeleted){
+        if (isDeleted) {
             System.out.printf("Movie \" %s \" was successfully deleted\n", title);
-        }else{
+        } else {
             System.out.printf("Movie with title \" %s \" does not exist\n", title);
         }
     }
-
-    public void saveMovies() throws FileNotFoundException {
-        controller.saveListOfMovie();
-    }
-
     public void loadMovieFromFile() throws FileNotFoundException {
         controller.loadMovieFromFile();
     }
     public void sortMoviesByAttribute() {
-        System.out.println("Vælg attribut til sortering:");
-        System.out.println("1. Titel");
-        System.out.println("2. Instruktør");
-        System.out.println("3. År oprettet");
-        System.out.println("4. Længde i minutter");
-        System.out.println("5. Farve");
-        System.out.println("6. Genre");
+        System.out.println("Choose attribute for sorting:");
+        System.out.println("1. By the titel");
+        System.out.println("2. By the director");
+        System.out.println("3. By the year created");
+        System.out.println("4. By the length (in minutes)");
+        System.out.println("5. By if the movie is in color ");
+        System.out.println("6. By the genre");
 
         int choice = scanner.nextInt();
-        String attribute;
+        ArrayList<Movie> sortedList;
         switch (choice) {
             case 1:
-                attribute = "title";
+                sortedList = controller.sortCollectionsByTitel();
+                printMovieCollection(sortedList);
                 break;
             case 2:
-                attribute = "director";
+                sortedList = controller.sortCollectionsByDirector();
+                printMovieCollection(sortedList);
                 break;
             case 3:
-                attribute = "year";
+                sortedList = controller.sortCollectionsByYear();
+                printMovieCollection(sortedList);
                 break;
             case 4:
-                attribute = "length";
+                sortedList = controller.sortCollectionsByLength();
+                printMovieCollection(sortedList);
                 break;
             case 5:
-                attribute = "color";
+                sortedList = controller.sortCollectionsByColor();
+                printMovieCollection(sortedList);
                 break;
             case 6:
-                attribute = "genre";
+                sortedList = controller.sortCollectionsByGenre();
+                printMovieCollection(sortedList);
                 break;
             default:
-                System.out.println("Ugyldigt valg");
-                return;
+                System.out.println("Unusable choice");
         }
-        //controller.sortMoviesByAttribute(attribute);
-        //printMovieCollection();
+    }
+    public void printMovieCollection(ArrayList<Movie> sortedList) {
+        System.out.println("Your movie collection:");
+        for (int i = 0; i < sortedList.size(); i++) {
+            System.out.printf("%d. ", i);
+            System.out.println();
+            System.out.println(sortedList.get(i));
+        }
     }
 }
 

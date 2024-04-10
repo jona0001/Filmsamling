@@ -42,7 +42,6 @@ public class MovieCollection {
 
     //getter that allows me to get the film list outside of this class
     public ArrayList<Movie> getFilmListe() {
-        Collections.sort(filmListe, new MovieTitelComparator());
         return filmListe;
     }
 
