@@ -71,7 +71,7 @@ public class Controller {
         return filmListe.sortCollectionsByTitel();
     }
     public ArrayList<Movie> sortCollectionsByYear() {
-        return filmListe.sortCollectionsByGenre();
+        return filmListe.sortCollectionsByYear();
     }
 }
 
