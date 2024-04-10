@@ -37,11 +37,11 @@ public class Movie {
         return yearCreated;
     }
 
-    public double getLengthInMinutes() {
+    public int getLengthInMinutes() {
         return lengthInMinutes;
     }
 
-    public boolean isInColor() {
+    public boolean getIsInColor() {
         return isInColor;
     }
 

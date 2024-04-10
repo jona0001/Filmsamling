@@ -31,8 +31,6 @@ public class UserInterface {
                     editMovie();
                 case 5 ->
                     deleteMovie();
-                case 6 ->
-                    saveMovies();
             }
         }
     }
@@ -112,7 +110,7 @@ public class UserInterface {
         System.out.println("3: Search for a movie in the collection");
         System.out.println("4: Edit a movie");
         System.out.println("5: Delete a movie");
-        System.out.println("6: Save movies to the file");
+        System.out.println("6: Print attributes by chosen order");
         System.out.println("9: Exit");
         System.out.println("*****************");
         try {
@@ -154,7 +152,7 @@ public class UserInterface {
 
         System.out.println("Would you like to edit the color? true/false for no edit");
         boolean colorEdit = scanner.nextBoolean();
-        if (colorEdit != movieToEdit.isInColor()) {
+        if (colorEdit != movieToEdit.getIsInColor()) {
             movieToEdit.setColor(colorEdit);
         }
 
@@ -228,10 +226,8 @@ public class UserInterface {
                 System.out.println("Ugyldigt valg");
                 return;
         }
-
-        // Sorter filmene efter den valgte attribut
-        controller.sortMoviesByAttribute(attribute);
-        printMovieCollection();
+        //controller.sortMoviesByAttribute(attribute);
+        //printMovieCollection();
     }
 }
 

@@ -1,7 +1,7 @@
 package domain;
 
 import datasource.FileHandler;
-import utility.MovieNameComparator;
+import utility.*;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ public class MovieCollection {
 
     //getter that allows me to get the film list outside of this class
     public ArrayList<Movie> getFilmListe() {
-        Collections.sort(filmListe, new MovieNameComparator());
+        Collections.sort(filmListe, new MovieTitelComparator());
         return filmListe;
     }
 
@@ -94,8 +94,29 @@ public class MovieCollection {
         }
         return isDeleted;
     }
-    public void sortMoviesByAttribute(String attribut) {
+
+    public ArrayList<Movie> sortCollectionsByColor() {
+        Collections.sort(filmListe, new MovieColorComparator());
+        return filmListe;
     }
-
+    public ArrayList<Movie> sortCollectionsByDirector() {
+        Collections.sort(filmListe, new MovieDirectorComparator());
+        return filmListe;
+    }
+    public ArrayList<Movie> sortCollectionsByGenre() {
+        Collections.sort(filmListe, new MovieGenreComparator());
+        return filmListe;
+    }
+    public ArrayList<Movie> sortCollectionsByLength() {
+        Collections.sort(filmListe, new MovieLengthComparator());
+        return filmListe;
+    }
+    public ArrayList<Movie> sortCollectionsByTitel() {
+        Collections.sort(filmListe, new MovieTitelComparator());
+        return filmListe;
+    }
+    public ArrayList<Movie> sortCollectionsByYear() {
+        Collections.sort(filmListe, new MovieColorComparator());
+        return filmListe;
+    }
 }
-

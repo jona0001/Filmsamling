@@ -4,9 +4,9 @@ import domain.Movie;
 
 import java.util.Comparator;
 
-public class MovieNameComparator implements Comparator<Movie> {
+public class MovieColorComparator implements Comparator<Movie> {
     @Override
     public int compare(Movie o1, Movie o2) {
-        return o1.getTitle().compareTo(o2.getTitle());
+        return Boolean.compare(o1.getIsInColor(),o2.getIsInColor());
     }
 }

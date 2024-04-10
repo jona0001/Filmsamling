@@ -10,7 +10,7 @@ class MovieNameComparatorTest {
     @Test
     void compare() {
         //arrange
-        MovieNameComparator movieNameComparator = new MovieNameComparator();
+        MovieTitelComparator movieNameComparator = new MovieTitelComparator();
         Movie movie1 = new Movie("a", "director", 1998, 88, true, "something");
         Movie movie2 = new Movie("c", "director", 1998, 88, true, "something");
         //act

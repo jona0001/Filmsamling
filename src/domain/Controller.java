@@ -7,20 +7,22 @@ public class Controller {
     // attribute that holds the movie collection
     private MovieCollection filmListe;
     private FileHandler fileHandler;
+
     //Constructor initializes the movie collection
     public Controller() {
         fileHandler = new FileHandler();
         filmListe = new MovieCollection(fileHandler.loadMoviesFromFile());
 
     }
+
     // Step 3: Add movie use case controller
-    public boolean addMovie (String title, String director, int yearCreated,
-                          int lengthInMinutes, boolean isInColor, String genre) throws FileNotFoundException {
+    public boolean addMovie(String title, String director, int yearCreated,
+                            int lengthInMinutes, boolean isInColor, String genre) throws FileNotFoundException {
         return filmListe.addMovie(title, director, yearCreated, lengthInMinutes, isInColor, genre);
     }
 
     // user case 4 getter
-    public ArrayList<Movie> showMovieCollection (){
+    public ArrayList<Movie> showMovieCollection() {
         return filmListe.getFilmListe();
     }
 
@@ -33,7 +35,8 @@ public class Controller {
     public ArrayList<Movie> showSearch(String word) {
         return filmListe.movieSearch(word);
     }
-    public void editMovie (int i, String title, String director, int year, boolean Color, int lengthInMinutes, String genre) {
+
+    public void editMovie(int i, String title, String director, int year, boolean Color, int lengthInMinutes, String genre) {
         filmListe.editMovie(i, title, director, year, Color, lengthInMinutes, genre);
     }
 
@@ -52,8 +55,23 @@ public class Controller {
     public void saveListOfMovie() throws FileNotFoundException {
         fileHandler.saveListOfMovies(filmListe.getFilmListe());
     }
-    public void sortMoviesByAttribute(String attribute) {
-        filmListe.sortMoviesByAttribute(attribute);
+    public ArrayList<Movie> sortCollectionsByColor() {
+        return filmListe.sortCollectionsByColor();
+    }
+    public ArrayList<Movie> sortCollectionsByDirector() {
+        return filmListe.sortCollectionsByDirector();
+    }
+    public ArrayList<Movie> sortCollectionsByGenre() {
+        return filmListe.sortCollectionsByGenre();
+    }
+    public ArrayList<Movie> sortCollectionsByLength() {
+        return filmListe.sortCollectionsByLength();
+    }
+    public ArrayList<Movie> sortCollectionsByTitel() {
+        return filmListe.sortCollectionsByTitel();
+    }
+    public ArrayList<Movie> sortCollectionsByYear() {
+        return filmListe.sortCollectionsByYear();
     }
 }
 
