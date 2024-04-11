@@ -73,6 +73,10 @@ public class Controller {
     public ArrayList<Movie> sortCollectionsByYear() {
         return filmListe.sortCollectionsByYear();
     }
+
+    public void sortByTwoAttributes(String attribute1, String attribute2) {
+        filmListe.sortByTwoAttributes(attribute1, attribute2);
+    }
 }
 
 

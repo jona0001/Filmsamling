@@ -1,11 +1,13 @@
 Title,Director,YearCreated,LengthInMinutes,IsInColor,Genre
 Batman,Christian Bail,2012,123,true,Action
 Die Hard,Sue Sørensen,1998,233,false,Comedy
+Alphabet,Sue Sørensen,1998,233,false,Comedy
 Tenasious D,Jack Black,2008,80,Yes,Comedy
 10 Things I Hate About You,John Mir,2011,90,Yes,Romantic
 Avre,Lotte Singing,2011,43,No,Thriller
-javaGame,Jonathan,2024,178,Yes,Action
+JavaGame,Jonathan,2024,178,Yes,Action
 JavaHunt,Jonathan,2025,160,Yes,Horror
+Zebra,Jonathan,2016,160,Yes,Horror
 Huntergames,Lars Jesus,1998,88,Yes,Thriller
 The Notebook,Chris Hemsworth,2005,120,No,Romantic
 Benji Got Benji,Simon Jackson,2015,130,Yes,Action

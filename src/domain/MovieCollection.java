@@ -6,6 +6,7 @@ import utility.*;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class MovieCollection {
     // an attribute of an empty Arraylist that will store instances of the movie class
@@ -118,4 +119,53 @@ public class MovieCollection {
         Collections.sort(filmListe, new MovieColorComparator());
         return filmListe;
     }
+
+    public void sortByTwoAttributes(String attribute1, String attribute2){
+        Comparator<Movie> comparator;
+        switch(attribute1){
+            case "1":
+                comparator = Comparator.comparing(Movie::getTitle);
+                break;
+            case "2":
+                comparator = Comparator.comparing(Movie::getDirector);
+                break;
+            case "3":
+                comparator = Comparator.comparing(Movie::getYearCreated);
+                break;
+            case "4":
+                comparator = Comparator.comparing(Movie::getLengthInMinutes);
+                break;
+            case "5":
+                comparator = Comparator.comparing(Movie::getIsInColor);
+                break;
+            case "6":
+                comparator = Comparator.comparing(Movie::getGenre);
+                break;
+            default: comparator = Comparator.comparing(Movie::getTitle);
+        }
+
+        switch(attribute2){
+            case "1":
+                comparator = comparator.thenComparing(Movie::getTitle);
+                break;
+            case "2":
+                comparator = comparator.thenComparing(Movie::getDirector);
+                break;
+            case "3":
+                comparator = comparator.thenComparing(Movie::getYearCreated);
+                break;
+            case "4":
+                comparator = comparator.thenComparing(Movie::getLengthInMinutes);
+                break;
+            case "5":
+                comparator = comparator.thenComparing(Movie::getIsInColor);
+                break;
+            case "6":
+                comparator = comparator.thenComparing(Movie::getGenre);
+                break;
+
+        }
+        filmListe.sort(comparator);
+    }
 }
+

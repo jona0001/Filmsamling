@@ -1,6 +1,5 @@
 package ui;
 import domain.*;
-import org.w3c.dom.ls.LSOutput;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -194,37 +193,43 @@ public class UserInterface {
         System.out.println("4. By the length (in minutes)");
         System.out.println("5. By if the movie is in color ");
         System.out.println("6. By the genre");
+        scanner.nextLine();
+        String attribute1 = scanner.next();
 
-        int choice = scanner.nextInt();
-        ArrayList<Movie> sortedList;
-        switch (choice) {
-            case 1:
-                sortedList = controller.sortCollectionsByTitel();
-                printMovieCollection(sortedList);
-                break;
-            case 2:
-                sortedList = controller.sortCollectionsByDirector();
-                printMovieCollection(sortedList);
-                break;
-            case 3:
-                sortedList = controller.sortCollectionsByYear();
-                printMovieCollection(sortedList);
-                break;
-            case 4:
-                sortedList = controller.sortCollectionsByLength();
-                printMovieCollection(sortedList);
-                break;
-            case 5:
-                sortedList = controller.sortCollectionsByColor();
-                printMovieCollection(sortedList);
-                break;
-            case 6:
-                sortedList = controller.sortCollectionsByGenre();
-                printMovieCollection(sortedList);
-                break;
-            default:
-                System.out.println("Unusable choice");
-        }
+        String attribute2 = scanner.next();
+
+        controller.sortByTwoAttributes(attribute1, attribute2);
+        printMovieCollection();
+//        int choice = scanner.nextInt();
+//        ArrayList<Movie> sortedList;
+//        switch (choice) {
+//            case 1:
+//                sortedList = controller.sortCollectionsByTitel();
+//                printMovieCollection(sortedList);
+//                break;
+//            case 2:
+//                sortedList = controller.sortCollectionsByDirector();
+//                printMovieCollection(sortedList);
+//                break;
+//            case 3:
+//                sortedList = controller.sortCollectionsByYear();
+//                printMovieCollection(sortedList);
+//                break;
+//            case 4:
+//                sortedList = controller.sortCollectionsByLength();
+//                printMovieCollection(sortedList);
+//                break;
+//            case 5:
+//                sortedList = controller.sortCollectionsByColor();
+//                printMovieCollection(sortedList);
+//                break;
+//            case 6:
+//                sortedList = controller.sortCollectionsByGenre();
+//                printMovieCollection(sortedList);
+//                break;
+//            default:
+//                System.out.println("Unusable choice");
+//        }
     }
     public void printMovieCollection(ArrayList<Movie> sortedList) {
         System.out.println("Your movie collection:");
