@@ -52,30 +52,9 @@ public class Controller {
         fileHandler.loadMoviesFromFile();
     }
 
-    public void saveListOfMovie() throws FileNotFoundException {
-        fileHandler.saveListOfMovies(filmListe.getFilmListe());
-    }
-    public ArrayList<Movie> sortCollectionsByColor() {
-        return filmListe.sortCollectionsByColor();
-    }
-    public ArrayList<Movie> sortCollectionsByDirector() {
-        return filmListe.sortCollectionsByDirector();
-    }
-    public ArrayList<Movie> sortCollectionsByGenre() {
-        return filmListe.sortCollectionsByGenre();
-    }
-    public ArrayList<Movie> sortCollectionsByLength() {
-        return filmListe.sortCollectionsByLength();
-    }
-    public ArrayList<Movie> sortCollectionsByTitel() {
-        return filmListe.sortCollectionsByTitel();
-    }
-    public ArrayList<Movie> sortCollectionsByYear() {
-        return filmListe.sortCollectionsByYear();
-    }
 
-    public void sortByTwoAttributes(String attribute1, String attribute2) {
-        filmListe.sortByTwoAttributes(attribute1, attribute2);
+    public void sort(int attribute1, int attribute2) {
+        filmListe.sort(attribute1, attribute2);
     }
 }
 

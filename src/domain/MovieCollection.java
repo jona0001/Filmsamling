@@ -1,11 +1,9 @@
 package domain;
 
 import datasource.FileHandler;
-import utility.*;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 
 public class MovieCollection {
@@ -95,75 +93,26 @@ public class MovieCollection {
         return isDeleted;
     }
 
-    public ArrayList<Movie> sortCollectionsByColor() {
-        Collections.sort(filmListe, new MovieColorComparator());
-        return filmListe;
-    }
-    public ArrayList<Movie> sortCollectionsByDirector() {
-        Collections.sort(filmListe, new MovieDirectorComparator());
-        return filmListe;
-    }
-    public ArrayList<Movie> sortCollectionsByGenre() {
-        Collections.sort(filmListe, new MovieGenreComparator());
-        return filmListe;
-    }
-    public ArrayList<Movie> sortCollectionsByLength() {
-        Collections.sort(filmListe, new MovieLengthComparator());
-        return filmListe;
-    }
-    public ArrayList<Movie> sortCollectionsByTitel() {
-        Collections.sort(filmListe, new MovieTitelComparator());
-        return filmListe;
-    }
-    public ArrayList<Movie> sortCollectionsByYear() {
-        Collections.sort(filmListe, new MovieColorComparator());
-        return filmListe;
-    }
 
-    public void sortByTwoAttributes(String attribute1, String attribute2){
+    public void sort(int attribute1, int attribute2){
         Comparator<Movie> comparator;
         switch(attribute1){
-            case "1":
-                comparator = Comparator.comparing(Movie::getTitle);
-                break;
-            case "2":
-                comparator = Comparator.comparing(Movie::getDirector);
-                break;
-            case "3":
-                comparator = Comparator.comparing(Movie::getYearCreated);
-                break;
-            case "4":
-                comparator = Comparator.comparing(Movie::getLengthInMinutes);
-                break;
-            case "5":
-                comparator = Comparator.comparing(Movie::getIsInColor);
-                break;
-            case "6":
-                comparator = Comparator.comparing(Movie::getGenre);
-                break;
-            default: comparator = Comparator.comparing(Movie::getTitle);
+            case 1 -> comparator = Comparator.comparing(Movie::getTitle);
+            case 2 -> comparator = Comparator.comparing(Movie::getDirector);
+            case 3 -> comparator = Comparator.comparingInt(Movie::getYearCreated);
+            case 4 -> comparator = Comparator.comparingInt(Movie::getLengthInMinutes);
+            case 5 -> comparator = Comparator.comparing(Movie::getIsInColor);
+            case 6 -> comparator = Comparator.comparing(Movie::getGenre);
+            default -> comparator = Comparator.comparing(Movie::getTitle);
         }
 
         switch(attribute2){
-            case "1":
-                comparator = comparator.thenComparing(Movie::getTitle);
-                break;
-            case "2":
-                comparator = comparator.thenComparing(Movie::getDirector);
-                break;
-            case "3":
-                comparator = comparator.thenComparing(Movie::getYearCreated);
-                break;
-            case "4":
-                comparator = comparator.thenComparing(Movie::getLengthInMinutes);
-                break;
-            case "5":
-                comparator = comparator.thenComparing(Movie::getIsInColor);
-                break;
-            case "6":
-                comparator = comparator.thenComparing(Movie::getGenre);
-                break;
-
+            case 1 -> comparator = comparator.thenComparing(Movie::getTitle);
+            case 2 -> comparator = comparator.thenComparing(Movie::getDirector);
+            case 3 -> comparator = comparator.thenComparingInt(Movie::getYearCreated);
+            case 4 -> comparator = comparator.thenComparingInt(Movie::getLengthInMinutes);
+            case 5 -> comparator = comparator.thenComparing(Movie::getIsInColor);
+            case 6 -> comparator = comparator.thenComparing(Movie::getGenre);
         }
         filmListe.sort(comparator);
     }
