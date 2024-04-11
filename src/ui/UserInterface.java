@@ -105,7 +105,7 @@ public class UserInterface {
         System.out.println("3: Search for a movie in the collection");
         System.out.println("4: Edit a movie");
         System.out.println("5: Delete a movie");
-        System.out.println("6: Print attributes by chosen order");
+        System.out.println("6: Print the movie collection by chosen order");
         System.out.println("9: Exit");
         System.out.println("*****************");
         try {
@@ -185,7 +185,7 @@ public class UserInterface {
 
     public void sortMovies() {
         System.out.println("Choose attribute for sorting:");
-        System.out.println("1. By the titel");
+        System.out.println("1. By the title");
         System.out.println("2. By the director");
         System.out.println("3. By the year created");
         System.out.println("4. By the length (in minutes)");
@@ -194,7 +194,7 @@ public class UserInterface {
 
         Scanner sc = new Scanner(System.in).useLocale(Locale.ENGLISH);
         int attribute1 = sc.nextInt();
-        System.out.println("Press a number for second attribute, 0 for no attribute:");
+        System.out.println("Press a number for second attribute, 0 for no second attribute:");
         int attribute2 = sc.nextInt();
 
         controller.sort(attribute1, attribute2);

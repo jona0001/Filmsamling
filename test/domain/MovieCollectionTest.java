@@ -32,11 +32,10 @@ class MovieCollectionTest {
         MovieCollection movieCollection = new MovieCollection(new ArrayList<>());
         movieCollection.addMovie("javaGame", "Jonathan", 2024, 20000, true, "action");
         movieCollection.addMovie("JavaHunt", "Jonathan", 2025, 20000, true, "horror");
-        movieCollection.getFilmListe(); //?
         // Act
-        movieCollection.getFilmListe();
+        ArrayList<Movie> filmListe = movieCollection.getFilmListe();
         int expectedNumberOfMovies = 2;
-        int actualNumberOfMovies = movieCollection.getFilmListe().size();
+        int actualNumberOfMovies = filmListe.size();
         //assert
         Assertions.assertEquals(expectedNumberOfMovies, actualNumberOfMovies);
     }

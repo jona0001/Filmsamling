@@ -1,6 +1,7 @@
 package domain;
 
 import datasource.FileHandler;
+import utility.*;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -95,18 +96,18 @@ public class MovieCollection {
 
 
     public void sort(int attribute1, int attribute2){
-        Comparator<Movie> comparator;
-        switch(attribute1){
-            case 1 -> comparator = Comparator.comparing(Movie::getTitle);
-            case 2 -> comparator = Comparator.comparing(Movie::getDirector);
-            case 3 -> comparator = Comparator.comparingInt(Movie::getYearCreated);
-            case 4 -> comparator = Comparator.comparingInt(Movie::getLengthInMinutes);
-            case 5 -> comparator = Comparator.comparing(Movie::getIsInColor);
-            case 6 -> comparator = Comparator.comparing(Movie::getGenre);
-            default -> comparator = Comparator.comparing(Movie::getTitle);
+        Comparator<Movie> comparator; //create the variable
+        switch(attribute1){ //initialize the variable by different comparator instances depending on the attribute1
+            case 1 -> comparator = new MovieTitleComparator();
+            case 2 -> comparator = new MovieDirectorComparator();
+            case 3 -> comparator = new MovieYearComparator();
+            case 4 -> comparator = new MovieLengthComparator();
+            case 5 -> comparator = new MovieColorComparator();
+            case 6 -> comparator = new MovieGenreComparator();
+            default -> comparator = new MovieTitleComparator(); //must be there so comparator variable always gets initialized
         }
 
-        switch(attribute2){
+        switch(attribute2){ // chain the second comparator. is not executed if attribute2 is 0
             case 1 -> comparator = comparator.thenComparing(Movie::getTitle);
             case 2 -> comparator = comparator.thenComparing(Movie::getDirector);
             case 3 -> comparator = comparator.thenComparingInt(Movie::getYearCreated);
@@ -114,7 +115,7 @@ public class MovieCollection {
             case 5 -> comparator = comparator.thenComparing(Movie::getIsInColor);
             case 6 -> comparator = comparator.thenComparing(Movie::getGenre);
         }
-        filmListe.sort(comparator);
+        filmListe.sort(comparator); // sort by attribute1 (and attribute2 if present)
     }
 }
 
