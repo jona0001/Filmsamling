@@ -6,6 +6,7 @@ import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
 public class UserInterface {
+
     private Scanner scanner;
     private Controller controller;
     private int menuChoice = 0;
@@ -39,7 +40,7 @@ public class UserInterface {
         System.out.println("Input director:");
         String director = scanner.next();
 
-        System.out.println("Input the year when the modie was created:");
+        System.out.println("Input the year when the movie was created:");
         boolean isDoneWithYear = false;
         int yearCreated = 0;
         while (!isDoneWithYear) {

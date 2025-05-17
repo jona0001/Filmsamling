@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 public class MovieCollection {
+
     // an attribute of an empty Arraylist that will store instances of the movie class
     // so a list with a lot of movies on it
     private ArrayList<Movie> filmListe;
@@ -40,7 +41,7 @@ public class MovieCollection {
         return result;
     }
 
-    //getter that allows me to get the film list outside of this class
+    //getter that allows to get the film list outside of this class
     public ArrayList<Movie> getFilmListe() {
         return filmListe;
     }

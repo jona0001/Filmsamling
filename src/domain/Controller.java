@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class Controller {
+
     // attribute that holds the movie collection
     private MovieCollection filmListe;
     private FileHandler fileHandler;
@@ -17,7 +18,8 @@ public class Controller {
 
     // Step 3: Add movie use case controller
     public boolean addMovie(String title, String director, int yearCreated,
-                            int lengthInMinutes, boolean isInColor, String genre) throws FileNotFoundException {
+                            int lengthInMinutes, boolean isInColor, String genre)
+            throws FileNotFoundException {
         return filmListe.addMovie(title, director, yearCreated, lengthInMinutes, isInColor, genre);
     }
 
